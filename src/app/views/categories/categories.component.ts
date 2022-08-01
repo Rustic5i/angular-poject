@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataHandlerService} from "../../service/data-handler.service";
+import {Category} from "../../model/Category";
 
 @Component({
   selector: 'app-categories',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  categories: Category[] = []; // TypeScript 2.7 включает строгую проверку классов,
+                               // где все свойства должны быть инициализированы в конструкторе
+                               // или при обьявлении переменной
+                               // Обходной путь — добавить !постфикс к имени переменной:
 
+  constructor(private dataHandler: DataHandlerService) {
+  }
+
+  /**
+   * Метод вызываеться после инциализации компонента
+   */
   ngOnInit(): void {
+    this.categories = this.dataHandler.getCategories();
+    console.log(this.categories);
   }
 
 }
