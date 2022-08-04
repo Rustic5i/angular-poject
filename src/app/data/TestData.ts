@@ -43,7 +43,8 @@ export class TestData {
     {
       id: 3,
       title: "Организовать детский праздник",
-      completed: false
+      completed: false,
+      category: TestData.categories[1]
     },
     {
       id: 4,
