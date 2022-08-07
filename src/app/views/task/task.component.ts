@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DataHandlerService} from "../../../service/data-handler.service";
-import {Task} from "../../../model/Task";
+import {DataHandlerService} from "../../service/data-handler.service";
+import {Task} from "../../model/Task";
 
 @Component({
   selector: 'app-task',

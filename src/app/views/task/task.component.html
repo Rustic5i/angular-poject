@@ -5,17 +5,21 @@
   <div class="card-body table-responsive">
     <table class="table table-hover">
       <thead class="text-warning">
-      <th>ID</th>
+      <th>#</th>
       <th>Название</th>
       <th>Категория</th>
       <th>Приоритет</th>
-      <th>Статус</th>
       <th>Дата</th>
+      <th>Статус</th>
       </thead>
       <tbody>
-      <tr *ngFor="let task of tasks">
-        <td>{{task.id}}</td>
+      <tr *ngFor="let task of tasks; let index = index">
+        <td>{{index+1}}</td>
         <td>{{task.title}}</td>
+        <td>{{task.category ? task.category.title : ""}}</td>
+        <td>{{task.priority ? task.priority.title : ""}}</td>
+        <td>{{task.date ? (task.date | date : "mediumDate"): "Без даты"}}</td>
+        <td>{{task.completed}}</td>
       </tr>
       </tbody>
     </table>

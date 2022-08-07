@@ -13,6 +13,7 @@ export class CategoriesComponent implements OnInit {
                                // где все свойства должны быть инициализированы в конструкторе
                                // или при обьявлении переменной
                                // Обходной путь — добавить !постфикс к имени переменной:
+  selectCategory?: Category;
 
   constructor(private dataHandler: DataHandlerService) {
   }
@@ -25,6 +26,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   showTasksByCategory(category: Category) {
+    this.selectCategory = category;
     this.dataHandler.fillTasksByCategories(category);
   }
 }
